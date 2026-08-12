@@ -51,6 +51,11 @@ p{margin-top:0}
 .stat-grid strong{display:block;font-family:Georgia,serif;font-size:46px;color:var(--green)}
 .stat-grid span{font-weight:650}
 .inline-link{display:inline-block;margin-top:24px;color:var(--green);font-weight:900}
+.news-section{background:var(--cream)}
+.news-list{max-width:1000px;border-top:1px solid var(--line)}
+.news-item{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.news-item time{font-weight:900;color:var(--olive);font-variant-numeric:tabular-nums}
+.news-item p{margin:0;font-size:18px;max-width:760px}
 .flyer-section{background:#e8edd8}
 .flyer-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1050px}
 .flyer-grid figure{margin:0}
@@ -81,6 +86,10 @@ p{margin-top:0}
 .footer-nav{display:flex;gap:18px;flex-wrap:wrap}
 .footer-nav a{text-decoration:none;font-weight:700}
 [hidden]{display:none!important}
+@media(max-width:1050px){
+  .nav{gap:14px}
+  .nav a{font-size:14px}
+}
 @media(max-width:900px){
   .menu-button{display:block;border:1px solid var(--green);border-radius:999px;background:transparent;padding:9px 13px}
   .nav{display:none;position:absolute;left:18px;right:18px;top:78px;flex-direction:column;align-items:flex-start;background:var(--paper);padding:20px;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow)}
@@ -91,6 +100,8 @@ p{margin-top:0}
 }
 @media(max-width:620px){
   .goals,.stat-grid,.join-grid,.flyer-grid{grid-template-columns:1fr}
+  .news-item{grid-template-columns:1fr;gap:6px;padding:18px 0}
+  .news-item p{font-size:17px}
   h1{font-size:42px}
   .hero{padding-top:48px}
   .brand span{font-size:14px}

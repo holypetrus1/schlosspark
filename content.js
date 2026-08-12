@@ -32,15 +32,15 @@ window.SCHLOSSPARK_CONTENT = {
     },
     {
       date: "2026-08-12",
-      text: "Unsere Umfrage hat inzwischen 556 Rückmeldungen. Die Ergebnisse zeigen deutlich, welche Verbesserungen den Menschen im Schlosspark besonders wichtig sind."
+      text: "Unsere Umfrage hat inzwischen 556 Rückmeldungen. Besonders deutlich wird der Wunsch nach Nachpflanzungen, besser geschützten Grünflächen und verlässlicher Wegepflege."
     },
     {
       date: "2026-06-14",
-      text: "Beim Fest der Gartenarbeitsschule haben wir Flyer verteilt und neue Kontakte für die Initiative geknüpft."
+      text: "Beim Fest der Gartenarbeitsschule wurden Flyer verteilt und neue Kontakte für die Initiative geknüpft."
     },
     {
       date: "2026-06-05",
-      text: "Beim Parkspaziergang haben wir uns zur Geschichte des Parks, zu aktuellen Problemen und zu Ideen für Verbesserungen ausgetauscht."
+      text: "Beim Parkspaziergang gab es Hintergrundinfos zur Entstehung des Parks, Ideensammlung und Mitmachmöglichkeiten."
     }
   ],
 
@@ -50,11 +50,28 @@ window.SCHLOSSPARK_CONTENT = {
   nextWalk: {
     date: "2026-09-23",
     dateLong: "23. September 2026",
-    description: "Parkspaziergang der Freunde des Schlossparks Pankow"
+    dateShort: "23. September",
+    description: "Gemeinsam hinschauen, Ideen sammeln und weitere Menschen für den Schlosspark gewinnen."
   },
 
   // ==========================================================
-  // 3. TITEL UND GRUNDTEXTE
+  // 3. MITMACHEN / LINKS
+  // ==========================================================
+  surveyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform",
+  mailingListUrl: "",
+
+  join: {
+    surveyTitle: "An der Umfrage teilnehmen",
+    surveyText: "Teile uns mit, wie du den Schlosspark nutzt und was sich verbessern sollte. In der Umfrage kannst du auf Wunsch auch deine E-Mail-Adresse hinterlassen.",
+    surveyButton: "Zur Umfrage",
+    mailingTitle: "Nur auf den Verteiler",
+    mailingText: "Du möchtest keine Umfrage ausfüllen, aber über Spaziergänge, Treffen und Neuigkeiten informiert bleiben? Dann trage dich separat für unseren Verteiler ein.",
+    mailingButton: "Verteiler-Link folgt",
+    mailingButtonActive: "Zum Verteiler"
+  },
+
+  // ==========================================================
+  // 4. GRUNDTEXTE
   // ==========================================================
   hero: {
     eyebrow: "Bürgerinitiative in Pankow",
@@ -65,50 +82,33 @@ window.SCHLOSSPARK_CONTENT = {
   about: {
     title: "Worum es geht",
     paragraphs: [
-      "Der Schlosspark ist für viele Menschen Alltagsweg, Treffpunkt, Spielort und Naturraum. Damit das so bleibt, braucht er mehr Aufmerksamkeit und eine verlässliche Pflege.",
-      "Wir setzen uns für den Schutz und die Pflege der Grünflächen, bessere Wege, mehr Aufenthaltsqualität und ein gutes Miteinander im Park ein. Dafür bringen wir Menschen aus der Nachbarschaft zusammen und suchen den Austausch mit Bezirk und Politik."
+      "Wir sind eine Bürgerinitiative und setzen uns für den Schlosspark in Pankow ein – als grünen Ort für Erholung, Begegnung und Natur mitten im Kiez.",
+      "Viele Menschen nutzen den Park täglich. Gleichzeitig gibt es sichtbare Mängel bei Bäumen, Grünflächen, Wegen und Ausstattung. Wir möchten darauf aufmerksam machen, Menschen zusammenbringen und Verbesserungen anstoßen."
     ]
   },
 
   focusTopics: [
     {
       emoji: "🌳",
-      title: "Natur & Grünflächen",
-      text: "Bäume und Sträucher nachpflanzen, Grünflächen besser schützen und den Park klimaresilient weiterentwickeln."
+      title: "Naturschutz & Klimaresilienz",
+      text: "Mehr Bäume und Blühwiesen sowie Umweltbildungsprojekte mit Kindern und Jugendlichen."
+    },
+    {
+      emoji: "🌿",
+      title: "Grünflächen-Pflege",
+      text: "Wiesen und denkmalgeschützte Grünanlagen besser schützen und Trampelpfade reduzieren."
     },
     {
       emoji: "🛤️",
-      title: "Wege & Sicherheit",
-      text: "Wege instand halten und Konflikte zwischen Fuß- und Radverkehr entschärfen."
-    },
-    {
-      emoji: "🪑",
-      title: "Aufenthaltsqualität",
-      text: "Bänke, öffentliche Toiletten, Mülleimer und attraktive Spielplätze gehören zu einem gut nutzbaren Park."
+      title: "Aufenthaltsqualität & Sicherheit",
+      text: "Wege verbessern, Konflikte zwischen Fuß- und Radverkehr entschärfen und den Park für alle sicherer machen."
     },
     {
       emoji: "🤝",
-      title: "Mitgestaltung",
-      text: "Interessen zusammenbringen, Themen sichtbar machen und gemeinsam mit dem Bezirk an Lösungen arbeiten."
+      title: "Transparenz & Mitgestaltung",
+      text: "Mehr Menschen für den Park begeistern, Interessengruppen zusammenbringen und gemeinsam mit dem Bezirk an Lösungen arbeiten."
     }
   ],
-
-  // ==========================================================
-  // 4. MITMACHEN
-  // ==========================================================
-  participate: {
-    survey: {
-      title: "An der Umfrage teilnehmen",
-      text: "Sag uns, wie du den Schlosspark nutzt und was sich verbessern sollte. In der Umfrage kannst du auf Wunsch auch deine E-Mail-Adresse hinterlassen.",
-      button: "Zur Umfrage"
-    },
-    mailingList: {
-      title: "Nur auf den Verteiler",
-      text: "Du möchtest über Spaziergänge, Treffen und Neuigkeiten informiert bleiben? Dann kannst du dich separat für unseren Verteiler eintragen.",
-      buttonActive: "Zum Verteiler",
-      buttonInactive: "Verteiler-Link folgt"
-    }
-  },
 
   // ==========================================================
   // 5. UMFRAGE – STAND 12.08.2026 / 556 RÜCKMELDUNGEN
@@ -121,48 +121,35 @@ window.SCHLOSSPARK_CONTENT = {
 
     highlights: [
       {
-        value: "88,6 %",
-        label: "nutzen den Park zu Fuß"
-      },
-      {
-        value: "85,6 %",
+        value: "86 %",
         label: "halten Nachpflanzungen von Bäumen und Sträuchern für nötig"
       },
       {
-        value: "61,7 %",
-        label: "sehen Sanierungs- und Instandhaltungsbedarf bei den Wegen"
+        value: "73 %",
+        label: "wollen Grünflächen besser schützen und wiederherstellen"
+      },
+      {
+        value: "62 %",
+        label: "sehen deutlichen Bedarf bei Wegen und Instandhaltung"
       }
     ],
 
-    prioritiesTitle: "Was am häufigsten gewünscht wird",
-    prioritiesNote: "Mehrfachauswahl – bis zu drei Antworten waren möglich.",
+    prioritiesTitle: "Hier wird besonders Handlungsbedarf gesehen",
+    prioritiesNote: "Anteil der Teilnehmenden mit eher oder voller Zustimmung.",
     priorities: [
-      { label: "Öffentliche Toiletten", percent: 56.3 },
-      { label: "Parkbänke reparieren oder aufstellen", percent: 50.7 },
-      { label: "Fuß- und Radverkehr besser ordnen", percent: 45.9 },
-      { label: "Mehr oder größere Mülleimer", percent: 45.3 },
-      { label: "Spielplätze verbessern", percent: 33.5 }
+      { label: "Nachpflanzung von Bäumen und Sträuchern", percent: 86 },
+      { label: "Grünflächen besser schützen und wiederherstellen", percent: 73 },
+      { label: "Wege sanieren und instand halten", percent: 62 }
     ],
 
     context: [
-      "52,2 % stimmen eher oder voll zu, dass sich die Gesamterscheinung des Parks in den letzten Jahren verschlechtert hat.",
-      "73,0 % stimmen eher oder voll zu, dass Grünflächen besser geschützt und wiederhergestellt werden sollten."
+      "Fast 89 % nutzen den Park zu Fuß.",
+      "Konkrete Verbesserungswünsche: öffentliche Toiletten (56 %), Parkbänke reparieren oder ergänzen (51 %), mehr oder größere Mülleimer (45 %)."
     ]
   },
 
   // ==========================================================
-  // 6. LINKS
-  // ==========================================================
-  links: {
-    surveyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform",
-
-    // Sobald das separate Formular für den Verteiler existiert,
-    // den Link einfach zwischen die Anführungszeichen eintragen.
-    mailingListUrl: ""
-  },
-
-  // ==========================================================
-  // 7. IMPRESSUM UND KONTAKT
+  // 6. KONTAKT UND IMPRESSUM
   // ==========================================================
   contact: {
     name: "Anika Meenken",
@@ -170,5 +157,13 @@ window.SCHLOSSPARK_CONTENT = {
     phone: "030/48825333",
     addressLine1: "Blankenburger Str. 14",
     addressLine2: "13156 Berlin"
+  },
+
+  // ==========================================================
+  // 7. GRAFIKEN – NORMALERWEISE NICHT ÄNDERN
+  // ==========================================================
+  visuals: {
+    foxLogo: "assets/fuchs.jpg",
+    parkIllustration: "assets/park-illustration.svg"
   }
 };

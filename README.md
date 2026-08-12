@@ -1,81 +1,120 @@
 # Freunde des Schlossparks Pankow
 
-Statische Website ohne Build-Prozess. Sie besteht nur aus HTML, CSS und JavaScript und läuft praktisch auf jedem Webspace sowie auf GitHub Pages.
+Statische Website ohne Build-Prozess. Sie besteht aus HTML, CSS, JavaScript und zwei kleinen JSON-Dateien. Sie läuft auf GitHub Pages und praktisch jedem klassischen Webspace.
 
-## Die wichtigsten Dateien
+## Pflegeprinzip
 
-- `index.html` – Seitenstruktur und längere Texte
-- `content.js` – **zentrale Pflegedatei** für wechselnde Angaben (Links, Termin, Kontakt, Flyer)
+Die Seite trennt **Darstellung** und **Inhalte** so weit wie sinnvoll:
+
+- `index.html` – Seitenstruktur und längere, selten geänderte Texte
 - `style.css` – Design
-- `script.js` – mobiles Menü und Einsetzen der Angaben aus `content.js`
+- `script.js` – lädt die Pflegedaten und Neuigkeiten
+- `content/site.json` – Links, nächster Spaziergang, Kontakt, Flyer/Logo
+- `content/news.json` – Neuigkeiten, jeweils nur Datum + Text
+- `admin/` – Decap-CMS-Redaktionsoberfläche
 - `assets/` – Bilder und Logos
 
-## Häufige Änderungen – ohne Technikkenntnisse
+Damit bleibt die Website auch ohne CMS vollständig als normale statische Website nutzbar. Das CMS ändert lediglich Dateien im GitHub-Repository.
 
-Für Termine, Links, Telefonnummer, E-Mail und Flyer reicht in der Regel **nur `content.js`**.
+## Redaktionsoberfläche mit Decap CMS
 
-Auf GitHub:
-1. `content.js` öffnen.
-2. Stift-Symbol „Edit this file“ anklicken.
-3. Gewünschten Text zwischen den Anführungszeichen ändern.
-4. „Commit changes“ anklicken.
+Nach fertiger Authentifizierung ist das CMS unter
 
-Wenn GitHub Pages genutzt wird, ist die Änderung danach automatisch online.
+`https://<domain>/admin/`
 
-## Zweiten Verteiler-Link eintragen
+zu erreichen.
 
-In `content.js` diese Zeile ändern:
+Im CMS gibt es bewusst nur zwei Bereiche:
 
-```js
-mailingListUrl: "",
-```
+1. **Allgemeine Angaben** – Umfrage-Link, Verteiler-Link, nächster Parkspaziergang, Kontakt/Impressum sowie später Flyer und Fuchs-Logo.
+2. **Neuigkeiten** – eine einfache Liste. Jede Neuigkeit besteht ausschließlich aus Datum und Text. Neue Einträge werden oben angelegt; die Website sortiert zusätzlich automatisch nach Datum und zeigt maximal sechs Einträge.
 
-zum Beispiel in:
+Es gibt keine Autorenschaft, Kommentarfunktion, Kategorien oder sonstige Blog-Funktionen.
 
-```js
-mailingListUrl: "https://docs.google.com/forms/...",
-```
+## Einmalige Einrichtung des CMS-Logins
 
-Der bisher deaktivierte Button wird dadurch automatisch aktiv und heißt dann „Zum Verteiler“.
+Die CMS-Dateien sind bereits eingebaut. Für den produktiven Login braucht der GitHub-Backend von Decap jedoch einmalig einen OAuth-Dienst. Wir verwenden absichtlich **nicht Netlify Git Gateway**, weil dieses inzwischen als deprecated markiert ist.
 
-## Flyer und Fuchs-Logo ergänzen
+Die einfache Variante, ohne das spätere Hosting an Netlify zu binden:
 
-Wenn die Dateien vorliegen:
+1. Ein kostenloses Netlify-Projekt für dieses GitHub-Repository anlegen. Es kann ausschließlich für OAuth dienen; die eigentliche Website darf weiter auf GitHub Pages, netcup, IONOS, STRATO usw. liegen.
+2. In GitHub unter **Settings → Developer settings → OAuth Apps** eine OAuth App anlegen.
+3. Als Callback-URL `https://api.netlify.com/auth/done` verwenden.
+4. Client ID und Client Secret in Netlify unter **Project configuration → Access & security → OAuth** als GitHub-Provider hinterlegen.
+5. In `admin/config.yml` die Zeile
 
-1. Vorderseite als `assets/flyer-vorne.jpg` hochladen.
-2. Rückseite als `assets/flyer-hinten.jpg` hochladen.
-3. Fuchs-Logo als `assets/fuchs-logo.png` hochladen.
-4. In `content.js` ändern:
+   `site_domain: REPLACE-ME.netlify.app`
 
-```js
-flyer: {
-  enabled: true,
-  useFoxLogo: true,
-```
+   durch die Domain dieses Netlify-Projekts ersetzen.
+6. Jede Person, die im CMS direkt veröffentlichen darf, braucht einen GitHub-Account und Schreibzugriff auf `holypetrus1/schlosspark`. Im Alltag muss sie GitHub selbst anschließend nicht bedienen; Login und Pflege erfolgen über `/admin/`.
 
-Dann erscheinen beide Flyer-Seiten automatisch auf der Website und das Fuchs-Logo ersetzt das vorläufige Blatt-Logo im Kopfbereich.
+Alternativ kann später ein eigener kleiner OAuth-Proxy genutzt werden. Dann wird nur die Backend-Konfiguration in `admin/config.yml` geändert; Inhalte und Website bleiben unverändert.
 
 ## Lokal testen
 
-`index.html` kann direkt im Browser geöffnet werden. Alternativ:
+Weil die Website JSON-Dateien nachlädt, sollte sie lokal über einen kleinen Webserver statt per Doppelklick auf `index.html` getestet werden:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-und danach `http://localhost:8000` aufrufen.
+Danach `http://localhost:8000` aufrufen.
 
-## Späteres CMS
+Für das CMS kann zusätzlich Decaps lokaler Proxy gestartet werden:
 
-Die jetzige Struktur ist bewusst so gebaut, dass es zwei Wege gibt:
+```bash
+npx decap-server
+```
 
-**Einfach weiter statisch:** Änderungen direkt in `content.js` bzw. `index.html` über die GitHub-Weboberfläche. Wenig Wartung, keine Datenbank, sehr robust.
+Dann `http://localhost:8000/admin/` öffnen. `local_backend: true` ist bereits in `admin/config.yml` gesetzt.
 
-**Später CMS ergänzen:** Wenn mehrere Nicht-Techniker regelmäßig Inhalte pflegen sollen, kann die Seite auf ein Git-basiertes CMS (z. B. Decap CMS) oder auf WordPress umgestellt werden. Für einzelne Termine, Links und kurze Texte ist das zunächst meist unnötig schwergewichtig.
+## Pflege ohne CMS
+
+Alle Inhalte bleiben auch direkt auf GitHub editierbar:
+
+- Termin, Links, Kontakt und Flyer: `content/site.json`
+- Neuigkeiten: `content/news.json`
+- längere Grundtexte: `index.html`
+
+Nach einer Änderung auf `main` wird GitHub Pages automatisch aktualisiert, sofern Pages für den Branch eingerichtet ist.
+
+## Verteiler-Link ergänzen
+
+Sobald das zweite Google-Formular existiert, entweder im CMS unter **Allgemeine Angaben → Verteiler-Link** eintragen oder in `content/site.json`:
+
+```json
+"mailingListUrl": "https://docs.google.com/forms/..."
+```
+
+Der bisher deaktivierte Button wird automatisch aktiv.
+
+## Flyer und Fuchs-Logo ergänzen
+
+Im CMS unter **Allgemeine Angaben → Flyer und Fuchs-Logo**:
+
+1. Vorderseite hochladen.
+2. Rückseite hochladen.
+3. Fuchs-Logo hochladen.
+4. „Flyer auf Website anzeigen“ aktivieren.
+5. Optional „Fuchs als Logo verwenden“ aktivieren.
+
+Uploads landen in `assets/uploads/` und werden zusammen mit den übrigen Website-Dateien versioniert.
+
+## Hosting
+
+Die Seite benötigt weder PHP noch eine Datenbank noch Node.js auf dem Webserver. Deshalb kann sie sehr leicht umziehen:
+
+- GitHub Pages
+- klassischer Webspace bei netcup, IONOS oder STRATO
+- Netlify / Cloudflare Pages
+- jeder andere Server, der statische Dateien ausliefern kann
+
+Das CMS ist ebenfalls nicht an den Website-Host gebunden. Entscheidend ist nur, dass `/admin/` erreichbar ist und die OAuth-Konfiguration zum GitHub-Repository passt.
 
 ## Noch zu klären
 
 - endgültiger Verteiler-Link
 - Flyer/Fuchs-Logo
 - endgültige Domain und Hosting
-- vor öffentlichem Dauerbetrieb die Vollständigkeit der rechtlichen Angaben/Datenschutzhinweise prüfen
+- produktiven OAuth-Login einmalig einrichten
+- vor öffentlichem Dauerbetrieb Vollständigkeit von Impressum und Datenschutzhinweisen prüfen

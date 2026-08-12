@@ -163,7 +163,7 @@ window.SCHLOSSPARK_CONTENT = {
   // 7. GRAFIKEN – NORMALERWEISE NICHT ÄNDERN
   // ==========================================================
   visuals: {
-    foxLogo: "assets/fuchs.jpg",
+    foxLogo: "assets/fuchs-aquarell.jpg",
     parkIllustration: "assets/park-illustration.svg"
   }
 };

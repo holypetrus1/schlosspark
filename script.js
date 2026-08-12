@@ -1,6 +1,5 @@
 const cfg = window.SCHLOSSPARK_CONTENT || {};
 
-// Mobiles Menü
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('#nav');
 if (menuButton && nav) {
@@ -24,6 +23,11 @@ const setHref = (selector, value) => {
   document.querySelectorAll(selector).forEach(el => { el.href = value; });
 };
 
+const setImage = (selector, src) => {
+  if (!src) return;
+  document.querySelectorAll(selector).forEach(el => { el.src = src; });
+};
+
 const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -41,7 +45,6 @@ const formatDate = (value) => {
   }).format(date);
 };
 
-// Hero und Grundtexte
 setText('[data-hero-eyebrow]', cfg.hero?.eyebrow);
 setText('[data-hero-title]', cfg.hero?.title);
 setText('[data-hero-subtitle]', cfg.hero?.subtitle);
@@ -54,29 +57,19 @@ if (aboutText && Array.isArray(cfg.about?.paragraphs)) {
     .join('');
 }
 
-// Links
-const surveyUrl = cfg.links?.surveyUrl || '';
-const mailingListUrl = cfg.links?.mailingListUrl || '';
-setHref('[data-survey-link]', surveyUrl);
+setHref('[data-survey-link]', cfg.surveyUrl);
 document.querySelectorAll('[data-survey-link]').forEach(el => {
-  if (surveyUrl) {
+  if (cfg.surveyUrl) {
     el.target = '_blank';
     el.rel = 'noopener';
   }
 });
 
-// Mitmachen
-setText('[data-participate-survey-title]', cfg.participate?.survey?.title);
-setText('[data-participate-survey-text]', cfg.participate?.survey?.text);
-setText('[data-participate-survey-button]', cfg.participate?.survey?.button);
-setText('[data-participate-mail-title]', cfg.participate?.mailingList?.title);
-setText('[data-participate-mail-text]', cfg.participate?.mailingList?.text);
-
 const mailingLinks = document.querySelectorAll('[data-mailing-list-link]');
-if (mailingListUrl) {
+if (cfg.mailingListUrl) {
   mailingLinks.forEach(el => {
-    el.href = mailingListUrl;
-    el.textContent = cfg.participate?.mailingList?.buttonActive || 'Zum Verteiler';
+    el.href = cfg.mailingListUrl;
+    el.textContent = cfg.join?.mailingButtonActive || 'Zum Verteiler';
     el.classList.remove('disabled');
     el.removeAttribute('aria-disabled');
     el.target = '_blank';
@@ -84,12 +77,16 @@ if (mailingListUrl) {
   });
 } else {
   mailingLinks.forEach(el => {
-    el.textContent = cfg.participate?.mailingList?.buttonInactive || 'Verteiler-Link folgt';
+    el.textContent = cfg.join?.mailingButton || 'Verteiler-Link folgt';
     el.addEventListener('click', event => event.preventDefault());
   });
 }
 
-// Schwerpunkte
+setText('[data-join-survey-title]', cfg.join?.surveyTitle);
+setText('[data-join-survey-text]', cfg.join?.surveyText);
+setText('[data-join-mailing-title]', cfg.join?.mailingTitle);
+setText('[data-join-mailing-text]', cfg.join?.mailingText);
+
 const focusTarget = document.querySelector('[data-focus-topics]');
 if (focusTarget && Array.isArray(cfg.focusTopics)) {
   focusTarget.innerHTML = cfg.focusTopics.map(item => `
@@ -101,21 +98,6 @@ if (focusTarget && Array.isArray(cfg.focusTopics)) {
   `).join('');
 }
 
-// Neuigkeiten
-const newsTarget = document.querySelector('[data-news-list]');
-if (newsTarget && Array.isArray(cfg.news)) {
-  const sortedNews = [...cfg.news]
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .slice(0, 8);
-  newsTarget.innerHTML = sortedNews.map(item => `
-    <article class="news-item">
-      <time datetime="${escapeHtml(item.date)}">${escapeHtml(formatDate(item.date))}</time>
-      <p>${escapeHtml(item.text)}</p>
-    </article>
-  `).join('');
-}
-
-// Umfrage
 setText('[data-survey-title]', cfg.survey?.title);
 setText('[data-survey-subtitle]', cfg.survey?.subtitle);
 setText('[data-survey-stand-label]', cfg.survey?.standLabel);
@@ -141,7 +123,7 @@ if (priorityTarget && Array.isArray(cfg.survey?.priorities)) {
       <div class="priority-row">
         <div class="priority-head">
           <span>${escapeHtml(item.label)}</span>
-          <strong>${percent.toFixed(1).replace('.', ',')} %</strong>
+          <strong>${percent.toFixed(0)} %</strong>
         </div>
         <div class="priority-track" aria-hidden="true">
           <div class="priority-fill" style="width:${Math.min(100, Math.max(0, percent))}%"></div>
@@ -157,7 +139,19 @@ if (contextTarget && Array.isArray(cfg.survey?.context)) {
     .join('');
 }
 
-// Impressum und Kontakt
+const newsTarget = document.querySelector('[data-news-list]');
+if (newsTarget && Array.isArray(cfg.news)) {
+  const sortedNews = [...cfg.news]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .slice(0, 8);
+  newsTarget.innerHTML = sortedNews.map(item => `
+    <article class="news-item">
+      <time datetime="${escapeHtml(item.date)}">${escapeHtml(formatDate(item.date))}</time>
+      <p>${escapeHtml(item.text)}</p>
+    </article>
+  `).join('');
+}
+
 setText('[data-contact-name]', cfg.contact?.name);
 setText('[data-contact-email]', cfg.contact?.email);
 setText('[data-contact-phone]', cfg.contact?.phone);
@@ -165,3 +159,7 @@ setText('[data-contact-address1]', cfg.contact?.addressLine1);
 setText('[data-contact-address2]', cfg.contact?.addressLine2);
 setHref('[data-contact-email-link]', cfg.contact?.email ? `mailto:${cfg.contact.email}` : '');
 setHref('[data-contact-phone-link]', cfg.contact?.phone ? `tel:${cfg.contact.phone.replace(/[^+\d]/g, '')}` : '');
+
+setImage('#brand-logo', cfg.visuals?.foxLogo);
+setImage('#hero-fox', cfg.visuals?.foxLogo);
+setImage('#hero-illustration', cfg.visuals?.parkIllustration);

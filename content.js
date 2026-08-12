@@ -3,21 +3,20 @@
   FREUNDE DES SCHLOSSPARKS PANKOW – ZENTRALE INHALTSDATEI
   ============================================================
 
-  Diese EINE Datei enthält alles, was regelmäßig gepflegt wird.
-  Für eine Aktualisierung einfach diese Datei bearbeiten und im
-  Repository wieder als "content.js" hochladen/ersetzen.
+  Diese EINE Datei enthält die veränderbaren Inhalte der Website.
+  Sie kann gemeinsam gepflegt und anschließend als "content.js"
+  im GitHub-Repository ersetzt werden.
 
-  Am häufigsten ändern sich die Bereiche ganz oben:
+  OBEN stehen die Inhalte, die sich häufiger ändern:
   1. NEUIGKEITEN
   2. TERMINE
-  3. MITMACHEN / LINKS
 
-  Weiter unten stehen die eher statischen Inhalte:
-  Leitbild, Schwerpunkte, Umfrageergebnisse, Kontakt/Impressum.
+  WEITER UNTEN stehen die eher statischen Inhalte:
+  Grundtexte, Mitmachen, Umfrage, Links und Impressum/Kontakt.
 
   Wichtig beim Bearbeiten:
-  - Texte immer zwischen Anführungszeichen stehen lassen.
-  - Einträge werden mit Kommas getrennt.
+  - Texte zwischen Anführungszeichen stehen lassen.
+  - Einträge mit Kommas trennen.
   - Die äußeren geschweiften Klammern nicht entfernen.
 */
 
@@ -33,15 +32,15 @@ window.SCHLOSSPARK_CONTENT = {
     },
     {
       date: "2026-08-12",
-      text: "Unsere Umfrage hat inzwischen 556 Rückmeldungen. Die Ergebnisse zeigen sehr deutlich, welche Verbesserungen den Menschen im Schlosspark besonders wichtig sind."
+      text: "Unsere Umfrage hat inzwischen 556 Rückmeldungen. Die Ergebnisse zeigen deutlich, welche Verbesserungen den Menschen im Schlosspark besonders wichtig sind."
     },
     {
       date: "2026-06-14",
-      text: "Beim Fest der Gartenarbeitsschule wurden Flyer verteilt und neue Kontakte für die Initiative geknüpft."
+      text: "Beim Fest der Gartenarbeitsschule haben wir Flyer verteilt und neue Kontakte für die Initiative geknüpft."
     },
     {
       date: "2026-06-05",
-      text: "Beim Parkspaziergang gab es Hintergrundinfos zur Entstehung des Parks, Ideensammlung und Mitmachmöglichkeiten."
+      text: "Beim Parkspaziergang haben wir uns zur Geschichte des Parks, zu aktuellen Problemen und zu Ideen für Verbesserungen ausgetauscht."
     }
   ],
 
@@ -51,72 +50,79 @@ window.SCHLOSSPARK_CONTENT = {
   nextWalk: {
     date: "2026-09-23",
     dateLong: "23. September 2026",
-    dateShort: "23. September",
-    description: "Gemeinsam hinschauen, Ideen sammeln und weitere Menschen für den Schlosspark gewinnen."
+    description: "Parkspaziergang der Freunde des Schlossparks Pankow"
   },
 
   // ==========================================================
-  // 3. MITMACHEN / LINKS
-  // ==========================================================
-  surveyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform",
-
-  // Sobald das separate Formular für den Verteiler existiert,
-  // einfach den Link zwischen die Anführungszeichen eintragen.
-  mailingListUrl: "",
-
-  // ==========================================================
-  // 4. LEITBILD UND GRUNDTEXTE
+  // 3. TITEL UND GRUNDTEXTE
   // ==========================================================
   hero: {
     eyebrow: "Bürgerinitiative in Pankow",
-    title: "Für einen lebendigen, gepflegten und zukunftsfähigen Schlosspark.",
-    lead: "Wir engagieren uns für den Erhalt und die zukunftsfähige Entwicklung des Schlossparks als grünes Herz von Pankow.",
-    mission: "Unser Ziel ist ein lebendiger, vielfältig nutzbarer und naturnaher Park für alle – generationsübergreifend, inklusiv und ökologisch nachhaltig."
+    title: "Freunde des Schlossparks Pankow",
+    subtitle: "für einen lebendigen und gepflegten Schlosspark"
   },
 
   about: {
-    title: "Ein grünes Herz für Pankow – mit mehr Pflege, Schutz und Fürsprache.",
+    title: "Worum es geht",
     paragraphs: [
-      "Der Schlosspark ist für viele Menschen Alltagsweg, Treffpunkt, Aufenthaltsort und Naturraum zugleich. Er wird zu Fuß, mit dem Rad, mit Kindern und zum Sport genutzt – und soll als lebendiger, vielfältig nutzbarer und naturnaher Park erhalten bleiben.",
-      "Gleichzeitig gibt es sichtbare Mängel: Wege, Grünflächen, Bänke, Mülleimer und Spielplätze brauchen mehr Aufmerksamkeit. Wir machen diese Themen öffentlich sichtbar und bringen Nachbarschaft, Politik und Verwaltung zusammen."
+      "Der Schlosspark ist für viele Menschen Alltagsweg, Treffpunkt, Spielort und Naturraum. Damit das so bleibt, braucht er mehr Aufmerksamkeit und eine verlässliche Pflege.",
+      "Wir setzen uns für den Schutz und die Pflege der Grünflächen, bessere Wege, mehr Aufenthaltsqualität und ein gutes Miteinander im Park ein. Dafür bringen wir Menschen aus der Nachbarschaft zusammen und suchen den Austausch mit Bezirk und Politik."
     ]
   },
 
   focusTopics: [
     {
       emoji: "🌳",
-      title: "Naturschutz & Klimaresilienz",
-      text: "Mehr Bäume und Blühwiesen sowie Umweltbildungsprojekte mit Kindern und Jugendlichen."
-    },
-    {
-      emoji: "🌿",
-      title: "Grünflächen-Pflege",
-      text: "Wiesen und denkmalgeschützte Grünanlagen besser schützen und Trampelpfade reduzieren."
+      title: "Natur & Grünflächen",
+      text: "Bäume und Sträucher nachpflanzen, Grünflächen besser schützen und den Park klimaresilient weiterentwickeln."
     },
     {
       emoji: "🛤️",
-      title: "Aufenthaltsqualität & Sicherheit",
-      text: "Wege verbessern, Konflikte zwischen Fuß- und Radverkehr entschärfen und den Park für alle sicherer machen."
+      title: "Wege & Sicherheit",
+      text: "Wege instand halten und Konflikte zwischen Fuß- und Radverkehr entschärfen."
+    },
+    {
+      emoji: "🪑",
+      title: "Aufenthaltsqualität",
+      text: "Bänke, öffentliche Toiletten, Mülleimer und attraktive Spielplätze gehören zu einem gut nutzbaren Park."
     },
     {
       emoji: "🤝",
-      title: "Transparenz & Mitgestaltung",
-      text: "Mehr Menschen für den Park begeistern, Interessengruppen zusammenbringen und gemeinsam mit dem Bezirk an Lösungen arbeiten."
+      title: "Mitgestaltung",
+      text: "Interessen zusammenbringen, Themen sichtbar machen und gemeinsam mit dem Bezirk an Lösungen arbeiten."
     }
   ],
+
+  // ==========================================================
+  // 4. MITMACHEN
+  // ==========================================================
+  participate: {
+    survey: {
+      title: "An der Umfrage teilnehmen",
+      text: "Sag uns, wie du den Schlosspark nutzt und was sich verbessern sollte. In der Umfrage kannst du auf Wunsch auch deine E-Mail-Adresse hinterlassen.",
+      button: "Zur Umfrage"
+    },
+    mailingList: {
+      title: "Nur auf den Verteiler",
+      text: "Du möchtest über Spaziergänge, Treffen und Neuigkeiten informiert bleiben? Dann kannst du dich separat für unseren Verteiler eintragen.",
+      buttonActive: "Zum Verteiler",
+      buttonInactive: "Verteiler-Link folgt"
+    }
+  },
 
   // ==========================================================
   // 5. UMFRAGE – STAND 12.08.2026 / 556 RÜCKMELDUNGEN
   // ==========================================================
   survey: {
+    title: "Umfrage",
+    subtitle: "Wir haben euch gefragt, was euch wichtig ist. Und ihr habt abgestimmt.",
     responseCount: 556,
-    standLabel: "Aktueller Stand der ausgewerteten Antworten",
-    intro: "Die Umfrage zeichnet ein klares Bild: Viele Menschen nutzen den Schlosspark regelmäßig – und benennen sehr konkrete Verbesserungen.",
+    standLabel: "Ausgewertete Antworten",
 
     highlights: [
       {
         value: "88,6 %",
-        label: "nennen die Nutzung zu Fuß"
+        label: "nutzen den Park zu Fuß"
       },
       {
         value: "85,6 %",
@@ -145,7 +151,18 @@ window.SCHLOSSPARK_CONTENT = {
   },
 
   // ==========================================================
-  // 6. KONTAKT UND IMPRESSUM
+  // 6. LINKS
+  // ==========================================================
+  links: {
+    surveyUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform",
+
+    // Sobald das separate Formular für den Verteiler existiert,
+    // den Link einfach zwischen die Anführungszeichen eintragen.
+    mailingListUrl: ""
+  },
+
+  // ==========================================================
+  // 7. IMPRESSUM UND KONTAKT
   // ==========================================================
   contact: {
     name: "Anika Meenken",
@@ -153,14 +170,5 @@ window.SCHLOSSPARK_CONTENT = {
     phone: "030/48825333",
     addressLine1: "Blankenburger Str. 14",
     addressLine2: "13156 Berlin"
-  },
-
-  // ==========================================================
-  // 7. GRAFIKEN – NORMALERWEISE NICHT ÄNDERN
-  // ==========================================================
-  flyer: {
-    front: "assets/flyer-vorne.jpg",
-    back: "assets/flyer-hinten.jpg",
-    foxLogo: "assets/fuchs.jpg"
   }
 };

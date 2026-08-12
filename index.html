@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Freunde des Schlossparks Pankow</title>
-  <meta name="description" content="Bürgerinitiative für einen gepflegten, lebendigen und zukunftsfähigen Schlosspark Pankow." />
+  <meta name="description" content="Bürgerinitiative für einen lebendigen, gepflegten und zukunftsfähigen Schlosspark Pankow." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Startseite">
-      <img id="brand-logo" src="assets/logo.svg" alt="Freunde des Schlossparks Pankow" />
+      <img id="brand-logo" src="assets/logo.svg" alt="Fuchs – Freunde des Schlossparks Pankow" />
       <span>Freunde des<br>Schlossparks Pankow</span>
     </a>
     <button class="menu-button" aria-expanded="false" aria-controls="nav">Menü</button>
@@ -18,7 +18,6 @@
       <a href="#worum">Worum es geht</a>
       <a href="#umfrage">Umfrage</a>
       <a href="#neuigkeiten">Neuigkeiten</a>
-      <a href="#aktionen">Aktionen</a>
       <a href="#mitmachen">Mitmachen</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
     </nav>
@@ -27,116 +26,116 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Bürgerinitiative in Pankow</p>
-        <h1>Für einen lebendigen, gepflegten Schlosspark.</h1>
-        <p class="lead">Wir setzen uns dafür ein, dass der Schlosspark Pankow die Aufmerksamkeit bekommt, die er verdient: bessere Pflege, geschützte Grünflächen, sanierte Wege und mehr Aufenthaltsqualität für alle.</p>
+        <p class="eyebrow" data-hero-eyebrow>Bürgerinitiative in Pankow</p>
+        <h1 data-hero-title>Für einen lebendigen, gepflegten und zukunftsfähigen Schlosspark.</h1>
+        <p class="lead" data-hero-lead>Wir engagieren uns für den Erhalt und die zukunftsfähige Entwicklung des Schlossparks als grünes Herz von Pankow.</p>
+        <p class="hero-mission" data-hero-mission>Unser Ziel ist ein lebendiger, vielfältig nutzbarer und naturnaher Park für alle.</p>
         <div class="hero-actions">
           <a class="button primary" href="#mitmachen">Mitmachen</a>
-          <a class="button secondary" href="#umfrage">Ergebnisse ansehen</a>
+          <a class="button secondary" data-survey-link href="#umfrage">Zur Umfrage</a>
         </div>
       </div>
-      <div class="hero-card" aria-label="Illustration Schlosspark Pankow">
-        <img src="assets/park-illustration.svg" alt="Illustration eines Parks mit Wegen, Bäumen und Bank" />
+      <div class="hero-card">
+        <img id="hero-flyer-preview" src="assets/park-illustration.svg" alt="Flyer der Freunde des Schlossparks Pankow" />
       </div>
     </section>
 
     <section class="notice" aria-label="Nächster Termin">
-      <strong>Nächster Parkspaziergang:</strong> <span data-next-walk-long>23. September 2026</span> · <span data-next-walk-description>Gemeinsam hinschauen, Ideen sammeln und Verbesserungen anstoßen.</span>
+      <strong>Nächster Parkspaziergang:</strong>
+      <span data-next-walk-long>23. September 2026</span>
+      <span aria-hidden="true">·</span>
+      <span data-next-walk-description>Gemeinsam hinschauen, Ideen sammeln und weitere Menschen für den Schlosspark gewinnen.</span>
     </section>
 
     <section id="worum" class="section split">
       <div>
         <p class="eyebrow">Worum es geht</p>
-        <h2>Der Schlosspark braucht mehr Pflege, Klarheit und Fürsprache.</h2>
+        <h2 data-about-title>Ein grünes Herz für Pankow – mit mehr Pflege, Schutz und Fürsprache.</h2>
       </div>
-      <div class="text-block">
-        <p>Viele Menschen nutzen den Park täglich: zu Fuß, mit dem Rad, mit Kindern, zum Sport oder einfach zum Durchatmen. Gleichzeitig zeigen sich Mängel: Wege, Grünflächen, Bänke, Müll, Spielplätze und Nutzungskonflikte brauchen Aufmerksamkeit.</p>
-        <p>Wir wollen konstruktiv sichtbar machen, wo Verbesserungen nötig sind — und mit Bezirk, Politik, Verwaltung, Medien und Nachbarschaft ins Gespräch kommen.</p>
+      <div class="text-block" data-about-text>
+        <p>Der Schlosspark ist für viele Menschen Alltagsweg, Treffpunkt, Aufenthaltsort und Naturraum zugleich.</p>
+        <p>Wir machen sichtbar, wo Verbesserungen nötig sind, und bringen Nachbarschaft, Politik und Verwaltung zusammen.</p>
       </div>
     </section>
 
-    <section class="section goals" aria-label="Unsere Themen">
-      <article><span aria-hidden="true">🌳</span><h3>Nachpflanzen</h3><p>Bäume und Sträucher erhalten, ergänzen und klimaresilient entwickeln.</p></article>
-      <article><span aria-hidden="true">🪑</span><h3>Aufenthalt</h3><p>Bänke reparieren, Orte zum Verweilen schaffen, Parkqualität erhöhen.</p></article>
-      <article><span aria-hidden="true">🚮</span><h3>Sauberkeit</h3><p>Mülleimer verbessern und Verantwortung für den Park sichtbar machen.</p></article>
-      <article><span aria-hidden="true">🚲</span><h3>Wege</h3><p>Fuß- und Radverkehr besser ordnen und Wege instand halten.</p></article>
-      <article><span aria-hidden="true">🛝</span><h3>Kinder</h3><p>Spielplätze und Grünflächen familienfreundlich weiterentwickeln.</p></article>
-    </section>
+    <section class="section goals" aria-label="Unsere Schwerpunkte" data-focus-topics></section>
 
     <section id="umfrage" class="section results">
       <div class="section-heading">
         <p class="eyebrow">Umfrage</p>
-        <h2>Viele Stimmen, klare Hinweise.</h2>
-        <p>Über 500 Menschen haben Rückmeldung zur Nutzung und zum Zustand des Schlossparks gegeben. Diese Ergebnisse sind eine Grundlage für Gespräche mit Bezirk, Politik und Öffentlichkeit.</p>
+        <h2>Wenige Kennzahlen, klare Richtung.</h2>
+        <p data-survey-intro>Die Umfrage zeichnet ein klares Bild.</p>
       </div>
-      <div class="stat-grid">
-        <article><strong>56,8%</strong><span>wünschen öffentliche Toiletten</span></article>
-        <article><strong>51,1%</strong><span>wünschen reparierte oder zusätzliche Bänke</span></article>
-        <article><strong>46,4%</strong><span>wünschen mehr oder größere Mülleimer</span></article>
-        <article><strong>45,6%</strong><span>wünschen Trennung von Fuß- und Radverkehr</span></article>
-        <article><strong>67,5%</strong><span>stimmen voll zu: Nachpflanzung ist nötig</span></article>
-        <article><strong>88,7%</strong><span>nutzen den Park als Fußgängerinnen und Fußgänger</span></article>
+
+      <div class="survey-topline">
+        <div class="survey-count-card">
+          <span class="label" data-survey-stand-label>Aktueller Stand der ausgewerteten Antworten</span>
+          <strong data-survey-response-count>556</strong>
+          <span>Rückmeldungen</span>
+        </div>
+        <div class="highlight-grid" data-survey-highlights></div>
       </div>
-      <a class="inline-link" data-survey-link href="https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform">Zur laufenden Umfrage →</a>
+
+      <div class="survey-panels">
+        <article class="panel">
+          <h3 data-priorities-title>Was am häufigsten gewünscht wird</h3>
+          <p class="small-note" data-priorities-note>Mehrfachauswahl – bis zu drei Antworten waren möglich.</p>
+          <div class="priority-bars" data-survey-priorities></div>
+        </article>
+        <article class="panel panel-soft">
+          <h3>Was die Antworten außerdem zeigen</h3>
+          <ul class="context-list" data-survey-context></ul>
+          <a class="inline-link" data-survey-link href="#">Zur laufenden Umfrage →</a>
+        </article>
+      </div>
     </section>
 
     <section id="neuigkeiten" class="section news-section">
       <div class="section-heading">
         <p class="eyebrow">Neuigkeiten</p>
-        <h2>Kurz aus unserer Arbeit.</h2>
-        <p>Was sich rund um die Initiative und den Schlosspark gerade tut – bewusst knapp gehalten.</p>
+        <h2>Was gerade passiert.</h2>
+        <p>Kurz und aktuell – Termine, Entwicklungen und Hinweise aus der Initiative.</p>
       </div>
-      <div id="news-list" class="news-list" aria-live="polite">
-        <article class="news-item"><time datetime="2026-07-01">1. Juli 2026</time><p>Unsere Umfrage hat inzwischen 555 Teilnehmende erreicht. Vielen Dank für die vielen Rückmeldungen zum Schlosspark.</p></article>
-        <article class="news-item"><time datetime="2026-06-14">14. Juni 2026</time><p>Beim Fest der Gartenarbeitsschule waren wir zur Vernetzung vor Ort und haben Flyer verteilt.</p></article>
-        <article class="news-item"><time datetime="2026-06-05">5. Juni 2026</time><p>Bei unserem Parkspaziergang haben wir Hintergrundinformationen geteilt, Ideen gesammelt und Mitmachmöglichkeiten besprochen.</p></article>
-      </div>
+      <div class="news-list" data-news-list></div>
     </section>
 
-    <section id="flyer" class="section flyer-section" hidden>
+    <section id="flyer" class="section flyer-section">
       <div class="section-heading">
         <p class="eyebrow">Unser Flyer</p>
-        <h2>Schlossparkfreunde zum Mitnehmen.</h2>
-        <p>Vorder- und Rückseite unseres Flyers.</p>
+        <h2>Schlossparkfreunde auf einen Blick.</h2>
+        <p>Vorder- und Rückseite unseres Flyers mit den wichtigsten Anliegen und Kontaktmöglichkeiten.</p>
       </div>
       <div class="flyer-grid">
-        <figure><img id="flyer-front" alt="Flyer der Freunde des Schlossparks Pankow, Vorderseite"><figcaption>Vorderseite</figcaption></figure>
-        <figure><img id="flyer-back" alt="Flyer der Freunde des Schlossparks Pankow, Rückseite"><figcaption>Rückseite</figcaption></figure>
+        <figure>
+          <img id="flyer-front" src="assets/park-illustration.svg" alt="Flyer der Freunde des Schlossparks Pankow, Vorderseite" />
+          <figcaption>Vorderseite</figcaption>
+        </figure>
+        <figure>
+          <img id="flyer-back" src="assets/park-illustration.svg" alt="Flyer der Freunde des Schlossparks Pankow, Rückseite" />
+          <figcaption>Rückseite</figcaption>
+        </figure>
       </div>
-    </section>
-
-    <section id="aktionen" class="section timeline">
-      <div class="section-heading">
-        <p class="eyebrow">Aktionen</p>
-        <h2>Was bereits läuft.</h2>
-      </div>
-      <ol>
-        <li><time>Frühjahr 2026</time><strong>Online-Umfrage gestartet</strong><p>Nutzungsweisen, Probleme und Verbesserungswünsche gesammelt.</p></li>
-        <li><time>5. Juni</time><strong>Parkspaziergang</strong><p>Hintergrundinfos, Ideensammlung und Mitmachmöglichkeiten vor Ort.</p></li>
-        <li><time>14. Juni</time><strong>Vernetzung</strong><p>Flyer und Gespräche beim Fest der Gartenarbeitsschule.</p></li>
-        <li><time data-next-walk-short>23. September</time><strong>Nächster Parkspaziergang</strong><p>Weitere Nachbarinnen und Nachbarn einbinden und Anliegen sichtbar machen.</p></li>
-      </ol>
     </section>
 
     <section id="mitmachen" class="section join-section">
       <div class="section-heading join-heading">
         <p class="eyebrow">Mitmachen</p>
         <h2>Zwei einfache Wege, dabei zu sein.</h2>
-        <p>Du kannst uns Rückmeldung zum Park geben oder dich einfach auf unseren Verteiler setzen lassen.</p>
+        <p>Du kannst uns Rückmeldung zum Park geben oder dich einfach über Neuigkeiten und Spaziergänge informieren lassen.</p>
       </div>
 
       <div class="join-grid">
         <article class="join-card featured">
           <span class="join-letter">A</span>
           <h3>An der Umfrage teilnehmen</h3>
-          <p>Teile uns mit, wie du den Schlosspark nutzt und was sich verbessern sollte. Am Ende der Umfrage kannst du auch deine E-Mail-Adresse hinterlassen und so weitere Informationen bekommen.</p>
-          <a class="button primary large" data-survey-link href="https://docs.google.com/forms/d/e/1FAIpQLSdcajez0mMyslaINtt_U32HOMSKjIGqz2ijeOv9b9wt3sQTcw/viewform">Zur Umfrage</a>
+          <p>Teile uns mit, wie du den Schlosspark nutzt und was sich verbessern sollte. In der Umfrage kannst du auf Wunsch auch deine E-Mail-Adresse hinterlassen.</p>
+          <a class="button primary large" data-survey-link href="#">Zur Umfrage</a>
         </article>
 
         <article class="join-card">
           <span class="join-letter">B</span>
           <h3>Nur auf den Verteiler</h3>
-          <p>Du möchtest keine Umfrage ausfüllen, aber über Spaziergänge, Treffen und Neuigkeiten informiert bleiben? Dann kannst du dich separat für unseren Verteiler eintragen.</p>
+          <p>Du möchtest keine Umfrage ausfüllen, aber über Spaziergänge, Treffen und Neuigkeiten informiert bleiben? Dann trage dich separat für unseren Verteiler ein.</p>
           <a class="button primary large disabled" data-mailing-list-link href="#" aria-disabled="true">Verteiler-Link folgt</a>
         </article>
       </div>
@@ -145,12 +144,18 @@
     <section id="kontakt" class="section contact-section">
       <div>
         <p class="eyebrow">Kontakt</p>
-        <h2>Schreib uns.</h2>
-        <p>Hinweise zum Park, Ideen, Kontakte oder Lust mitzumachen? Wir freuen uns über eine Nachricht.</p>
+        <h2>Hinweise, Anregungen, Wünsche, Mitmachen?</h2>
+        <p>Wir freuen uns über eine Nachricht – ob zu Problemen im Park, Ideen für Verbesserungen oder Lust mitzumachen.</p>
       </div>
       <div class="contact-box">
-        <a data-contact-email-link href="mailto:schlossparkfreunde@gmail.com"><span>E-Mail</span><strong data-contact-email>schlossparkfreunde@gmail.com</strong></a>
-        <a data-contact-phone-link href="tel:+493048825333"><span>Telefon</span><strong data-contact-phone>030/48825333</strong></a>
+        <a data-contact-email-link href="mailto:schlossparkfreunde@gmail.com">
+          <span>E-Mail</span>
+          <strong data-contact-email>schlossparkfreunde@gmail.com</strong>
+        </a>
+        <a data-contact-phone-link href="tel:+493048825333">
+          <span>Telefon</span>
+          <strong data-contact-phone>030/48825333</strong>
+        </a>
       </div>
     </section>
 
@@ -161,7 +166,7 @@
       </div>
       <div class="legal-card">
         <p><strong>Freunde des Schlossparks Pankow</strong></p>
-        <p><span data-contact-name>Anika</span><br><span data-contact-address1>Blankenburger Str. 14</span><br><span data-contact-address2>13156 Berlin</span></p>
+        <p><span data-contact-name>Anika Meenken</span><br><span data-contact-address1>Blankenburger Str. 14</span><br><span data-contact-address2>13156 Berlin</span></p>
         <p>Telefon: <a data-contact-phone-link href="tel:+493048825333" data-contact-phone>030/48825333</a><br>
         E-Mail: <a data-contact-email-link href="mailto:schlossparkfreunde@gmail.com" data-contact-email>schlossparkfreunde@gmail.com</a></p>
       </div>
@@ -178,10 +183,10 @@
       <a href="#mitmachen">Mitmachen</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#impressum">Impressum</a>
-      <a href="admin/" rel="nofollow">Redaktion</a>
     </nav>
   </footer>
 
+  <script src="content.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

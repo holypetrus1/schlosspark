@@ -24,11 +24,6 @@ const setHref = (selector, value) => {
   document.querySelectorAll(selector).forEach(el => { el.href = value; });
 };
 
-const setImage = (selector, src) => {
-  if (!src) return;
-  document.querySelectorAll(selector).forEach(el => { el.src = src; });
-};
-
 const escapeHtml = (value = '') => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -49,8 +44,7 @@ const formatDate = (value) => {
 // Hero und Grundtexte
 setText('[data-hero-eyebrow]', cfg.hero?.eyebrow);
 setText('[data-hero-title]', cfg.hero?.title);
-setText('[data-hero-lead]', cfg.hero?.lead);
-setText('[data-hero-mission]', cfg.hero?.mission);
+setText('[data-hero-subtitle]', cfg.hero?.subtitle);
 setText('[data-about-title]', cfg.about?.title);
 
 const aboutText = document.querySelector('[data-about-text]');
@@ -60,30 +54,39 @@ if (aboutText && Array.isArray(cfg.about?.paragraphs)) {
     .join('');
 }
 
-// Termin
-setText('[data-next-walk-long]', cfg.nextWalk?.dateLong || formatDate(cfg.nextWalk?.date));
-setText('[data-next-walk-short]', cfg.nextWalk?.dateShort || formatDate(cfg.nextWalk?.date));
-setText('[data-next-walk-description]', cfg.nextWalk?.description);
-
-// Umfrage- und Verteilerlinks
-setHref('[data-survey-link]', cfg.surveyUrl);
+// Links
+const surveyUrl = cfg.links?.surveyUrl || '';
+const mailingListUrl = cfg.links?.mailingListUrl || '';
+setHref('[data-survey-link]', surveyUrl);
 document.querySelectorAll('[data-survey-link]').forEach(el => {
-  el.target = '_blank';
-  el.rel = 'noopener';
+  if (surveyUrl) {
+    el.target = '_blank';
+    el.rel = 'noopener';
+  }
 });
 
+// Mitmachen
+setText('[data-participate-survey-title]', cfg.participate?.survey?.title);
+setText('[data-participate-survey-text]', cfg.participate?.survey?.text);
+setText('[data-participate-survey-button]', cfg.participate?.survey?.button);
+setText('[data-participate-mail-title]', cfg.participate?.mailingList?.title);
+setText('[data-participate-mail-text]', cfg.participate?.mailingList?.text);
+
 const mailingLinks = document.querySelectorAll('[data-mailing-list-link]');
-if (cfg.mailingListUrl) {
+if (mailingListUrl) {
   mailingLinks.forEach(el => {
-    el.href = cfg.mailingListUrl;
-    el.textContent = 'Zum Verteiler';
+    el.href = mailingListUrl;
+    el.textContent = cfg.participate?.mailingList?.buttonActive || 'Zum Verteiler';
     el.classList.remove('disabled');
     el.removeAttribute('aria-disabled');
     el.target = '_blank';
     el.rel = 'noopener';
   });
 } else {
-  mailingLinks.forEach(el => el.addEventListener('click', event => event.preventDefault()));
+  mailingLinks.forEach(el => {
+    el.textContent = cfg.participate?.mailingList?.buttonInactive || 'Verteiler-Link folgt';
+    el.addEventListener('click', event => event.preventDefault());
+  });
 }
 
 // Schwerpunkte
@@ -98,8 +101,23 @@ if (focusTarget && Array.isArray(cfg.focusTopics)) {
   `).join('');
 }
 
+// Neuigkeiten
+const newsTarget = document.querySelector('[data-news-list]');
+if (newsTarget && Array.isArray(cfg.news)) {
+  const sortedNews = [...cfg.news]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .slice(0, 8);
+  newsTarget.innerHTML = sortedNews.map(item => `
+    <article class="news-item">
+      <time datetime="${escapeHtml(item.date)}">${escapeHtml(formatDate(item.date))}</time>
+      <p>${escapeHtml(item.text)}</p>
+    </article>
+  `).join('');
+}
+
 // Umfrage
-setText('[data-survey-intro]', cfg.survey?.intro);
+setText('[data-survey-title]', cfg.survey?.title);
+setText('[data-survey-subtitle]', cfg.survey?.subtitle);
 setText('[data-survey-stand-label]', cfg.survey?.standLabel);
 setText('[data-survey-response-count]', cfg.survey?.responseCount);
 setText('[data-priorities-title]', cfg.survey?.prioritiesTitle);
@@ -139,21 +157,7 @@ if (contextTarget && Array.isArray(cfg.survey?.context)) {
     .join('');
 }
 
-// Neuigkeiten
-const newsTarget = document.querySelector('[data-news-list]');
-if (newsTarget && Array.isArray(cfg.news)) {
-  const sortedNews = [...cfg.news]
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .slice(0, 8);
-  newsTarget.innerHTML = sortedNews.map(item => `
-    <article class="news-item">
-      <time datetime="${escapeHtml(item.date)}">${escapeHtml(formatDate(item.date))}</time>
-      <p>${escapeHtml(item.text)}</p>
-    </article>
-  `).join('');
-}
-
-// Kontakt / Impressum
+// Impressum und Kontakt
 setText('[data-contact-name]', cfg.contact?.name);
 setText('[data-contact-email]', cfg.contact?.email);
 setText('[data-contact-phone]', cfg.contact?.phone);
@@ -161,9 +165,3 @@ setText('[data-contact-address1]', cfg.contact?.addressLine1);
 setText('[data-contact-address2]', cfg.contact?.addressLine2);
 setHref('[data-contact-email-link]', cfg.contact?.email ? `mailto:${cfg.contact.email}` : '');
 setHref('[data-contact-phone-link]', cfg.contact?.phone ? `tel:${cfg.contact.phone.replace(/[^+\d]/g, '')}` : '');
-
-// Flyer und Fuchs
-setImage('#brand-logo', cfg.flyer?.foxLogo);
-setImage('#hero-flyer-preview', cfg.flyer?.front);
-setImage('#flyer-front', cfg.flyer?.front);
-setImage('#flyer-back', cfg.flyer?.back);

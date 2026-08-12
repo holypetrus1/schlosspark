@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Startseite">
-      <img id="brand-logo" src="assets/logo.svg" alt="Logo der Freunde des Schlossparks Pankow" />
+      <img id="brand-logo" src="assets/fuchs.jpg" alt="Fuchs-Logo der Freunde des Schlossparks Pankow" />
       <span>Freunde des<br>Schlossparks Pankow</span>
     </a>
     <button class="menu-button" aria-expanded="false" aria-controls="nav">Menü</button>
@@ -35,7 +35,12 @@
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <img src="assets/park-illustration.svg" alt="" />
+        <div class="hero-visual-card">
+          <img id="hero-illustration" src="assets/park-illustration.svg" alt="" />
+        </div>
+        <div class="fox-sticker">
+          <img id="hero-fox" src="assets/fuchs.jpg" alt="" />
+        </div>
       </div>
     </section>
 
@@ -71,8 +76,8 @@
 
       <div class="survey-panels">
         <article class="panel">
-          <h3 data-priorities-title>Was am häufigsten gewünscht wird</h3>
-          <p class="small-note" data-priorities-note>Mehrfachauswahl – bis zu drei Antworten waren möglich.</p>
+          <h3 data-priorities-title>Hier wird besonders Handlungsbedarf gesehen</h3>
+          <p class="small-note" data-priorities-note>Anteil der Teilnehmenden mit eher oder voller Zustimmung.</p>
           <div class="priority-bars" data-survey-priorities></div>
         </article>
         <article class="panel panel-soft">
@@ -84,22 +89,20 @@
     </section>
 
     <section id="mitmachen" class="section join-section">
-      <div class="section-heading join-heading compact-heading">
+      <div class="section-heading compact-heading join-heading">
         <h2>Mitmachen</h2>
       </div>
 
       <div class="join-grid">
         <article class="join-card featured">
-          <span class="join-letter">A</span>
-          <h3 data-participate-survey-title>An der Umfrage teilnehmen</h3>
-          <p data-participate-survey-text></p>
-          <a class="button primary large" data-survey-link data-participate-survey-button href="#">Zur Umfrage</a>
+          <h3 data-join-survey-title>An der Umfrage teilnehmen</h3>
+          <p data-join-survey-text>Teile uns mit, wie du den Schlosspark nutzt und was sich verbessern sollte.</p>
+          <a class="button primary large" data-survey-link href="#">Zur Umfrage</a>
         </article>
 
         <article class="join-card">
-          <span class="join-letter">B</span>
-          <h3 data-participate-mail-title>Nur auf den Verteiler</h3>
-          <p data-participate-mail-text></p>
+          <h3 data-join-mailing-title>Nur auf den Verteiler</h3>
+          <p data-join-mailing-text>Du möchtest keine Umfrage ausfüllen, aber informiert bleiben? Dann trage dich separat für unseren Verteiler ein.</p>
           <a class="button primary large disabled" data-mailing-list-link href="#" aria-disabled="true">Verteiler-Link folgt</a>
         </article>
       </div>
@@ -109,16 +112,11 @@
       <div class="section-heading compact-heading">
         <h2>Impressum und Kontakt</h2>
       </div>
-      <div class="legal-grid">
-        <div class="legal-card">
-          <p><strong>Freunde des Schlossparks Pankow</strong></p>
-          <p><span data-contact-name>Anika Meenken</span><br><span data-contact-address1>Blankenburger Str. 14</span><br><span data-contact-address2>13156 Berlin</span></p>
-        </div>
-        <div class="legal-card contact-card">
-          <p><strong>Kontakt</strong></p>
-          <p><a data-contact-email-link href="mailto:schlossparkfreunde@gmail.com" data-contact-email>schlossparkfreunde@gmail.com</a><br>
-          <a data-contact-phone-link href="tel:+493048825333" data-contact-phone>030/48825333</a></p>
-        </div>
+      <div class="legal-card">
+        <p><strong>Freunde des Schlossparks Pankow</strong></p>
+        <p><span data-contact-name>Anika Meenken</span><br><span data-contact-address1>Blankenburger Str. 14</span><br><span data-contact-address2>13156 Berlin</span></p>
+        <p>Telefon: <a data-contact-phone-link href="tel:+493048825333" data-contact-phone>030/48825333</a><br>
+        E-Mail: <a data-contact-email-link href="mailto:schlossparkfreunde@gmail.com" data-contact-email>schlossparkfreunde@gmail.com</a></p>
       </div>
     </section>
   </main>

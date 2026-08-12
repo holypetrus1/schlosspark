@@ -1,0 +1,100 @@
+# Decap CMS – Redaktionsoberfläche für die Schlossparkfreunde
+#
+# WICHTIG: Für den produktiven Login auf GitHub Pages muss einmalig ein
+# OAuth-Dienst eingerichtet werden. Die einfachste Variante ist ein kleines
+# Netlify-Projekt nur für GitHub-OAuth. Danach REPLACE-ME.netlify.app unten
+# durch dessen Domain ersetzen. Alternativ kann später ein eigener OAuth-Proxy
+# genutzt werden; die Inhaltsstruktur bleibt dabei unverändert.
+
+backend:
+  name: github
+  repo: holypetrus1/schlosspark
+  branch: main
+  use_graphql: true
+  base_url: https://api.netlify.com
+  site_domain: REPLACE-ME.netlify.app
+
+# Erlaubt lokales Testen mit `npx decap-server`.
+local_backend: true
+
+publish_mode: simple
+locale: de
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+collections:
+  - name: website
+    label: Website
+    files:
+      - label: Allgemeine Angaben
+        name: settings
+        file: content/site.json
+        fields:
+          - label: Umfrage-Link
+            name: surveyUrl
+            widget: string
+            hint: Link zur großen Schlosspark-Umfrage.
+
+          - label: Verteiler-Link
+            name: mailingListUrl
+            widget: string
+            required: false
+            hint: Leer lassen, solange das separate Google-Formular noch nicht existiert. Der Button bleibt dann deaktiviert.
+
+          - label: Nächster Parkspaziergang
+            name: nextWalk
+            widget: object
+            fields:
+              - label: Datum
+                name: date
+                widget: datetime
+                date_format: DD.MM.YYYY
+                time_format: false
+                format: YYYY-MM-DD
+              - label: Kurzbeschreibung
+                name: description
+                widget: text
+
+          - label: Kontakt und Impressum
+            name: contact
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: E-Mail, name: email, widget: string }
+              - { label: Telefon, name: phone, widget: string }
+              - { label: Straße und Hausnummer, name: addressLine1, widget: string }
+              - { label: PLZ und Ort, name: addressLine2, widget: string }
+
+          - label: Flyer und Fuchs-Logo
+            name: flyer
+            widget: object
+            hint: Erst aktivieren, wenn die Dateien vorliegen.
+            fields:
+              - { label: Flyer auf Website anzeigen, name: enabled, widget: boolean, default: false }
+              - { label: Fuchs als Logo verwenden, name: useFoxLogo, widget: boolean, default: false }
+              - { label: Flyer Vorderseite, name: front, widget: image, required: false }
+              - { label: Flyer Rückseite, name: back, widget: image, required: false }
+              - { label: Fuchs-Logo, name: foxLogo, widget: image, required: false }
+
+      - label: Neuigkeiten
+        name: news
+        file: content/news.json
+        fields:
+          - label: Neuigkeiten
+            name: items
+            widget: list
+            label_singular: Neuigkeit
+            add_to_top: true
+            collapsed: true
+            summary: '{{fields.date}} · {{fields.text}}'
+            fields:
+              - label: Datum
+                name: date
+                widget: datetime
+                date_format: DD.MM.YYYY
+                time_format: false
+                format: YYYY-MM-DD
+              - label: Text
+                name: text
+                widget: text
+                hint: Kurz halten. Auf der Website erscheinen nur Datum und Text – keine Autorenschaft und keine Kommentare.

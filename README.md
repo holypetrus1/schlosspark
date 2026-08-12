@@ -10,11 +10,11 @@ Die Datei ist bewusst so aufgebaut, dass oben die häufig wechselnden Inhalte st
 
 1. Neuigkeiten
 2. Termine
-3. Mitmachen / Links
-4. Leitbild und Grundtexte
+3. Titel und Grundtexte
+4. Mitmachen
 5. Umfrageergebnisse
-6. Kontakt und Impressum
-7. Pfade zu Flyer/Fuchs
+6. Links
+7. Impressum und Kontakt
 
 Damit kann `content.js` z. B. gemeinsam in Google Drive gepflegt werden. Wenn eine neue Version fertig ist, muss im Repository lediglich die alte `content.js` ersetzt werden. Die restliche Website bleibt unverändert.
 
@@ -32,16 +32,16 @@ Damit kann `content.js` z. B. gemeinsam in Google Drive gepflegt werden. Wenn ei
 - `style.css` – Gestaltung
 - `script.js` – stellt die Inhalte aus `content.js` auf der Seite dar
 - `content.js` – **einzige Pflegedatei**
-- `assets/` – statische Bilder und Grafiken, darunter Flyer und Fuchs
+- `assets/` – statische Grafiken und Logo
 
-## Flyer
+## Logo und Gestaltung
 
-Die Website nutzt den aktuellen Flyer als Gestaltungsvorlage. In `assets/` liegen weboptimierte Bilder der Vorder- und Rückseite sowie ein Ausschnitt mit dem Fuchs.
+Das Logo wird stabil aus `assets/logo.svg` geladen. Der Flyer selbst wird auf der Website nicht eingebunden. Farbwelt, Schwerpunkte und Tonfall orientieren sich aber an den Inhalten des Flyers.
 
 ## Umfrage
 
-Die in `content.js` eingetragenen Umfragewerte entsprechen dem ausgewerteten Stand vom 12.08.2026 mit 556 Rückmeldungen. Wenn später eine neue Auswertung vorliegt, müssen nur die Werte im Abschnitt `UMFRAGE` der `content.js` angepasst werden.
+Die in `content.js` eingetragenen Umfragewerte entsprechen dem ausgewerteten Stand vom 12.08.2026 mit 556 Rückmeldungen. Wenn später eine neue Auswertung vorliegt, müssen nur die Werte im Abschnitt `UMFRAGE` angepasst werden.
 
 ## Verteiler
 
-Sobald ein separates Formular für den Verteiler existiert, in `content.js` bei `mailingListUrl` den Link eintragen. Der bislang deaktivierte Button wird dann automatisch aktiv.
+Sobald ein separates Formular für den Verteiler existiert, in `content.js` im Abschnitt `LINKS` bei `mailingListUrl` den Link eintragen. Der bislang deaktivierte Button wird dann automatisch aktiv.
